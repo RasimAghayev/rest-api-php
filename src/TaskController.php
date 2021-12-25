@@ -17,9 +17,14 @@ class TaskController
                 $this->respondMethodNotAllowed("GET,POST");
             }
         }else{
+            $task=$this->gateway->get($id);
+            if ($task===false){
+                $this->respondNotFound($id);
+                return;
+            }
             switch ($method){
                 case "GET":
-                    echo "show $id";
+                    echo json_encode($task);
                     break;
                 case "PATCH":
                     echo "update $id";
@@ -38,5 +43,11 @@ class TaskController
         http_response_code(405);
         header("Allow: $allowed_methods");
 
+    }
+
+    private function respondNotFound(string $id):void
+    {
+        http_response_code(404);
+        echo json_encode(["message"=>"Task with ID $id not found"]);
     }
 }

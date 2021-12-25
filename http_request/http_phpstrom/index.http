@@ -3,7 +3,7 @@ GET {{host}}/tasks
 Accept: application/json
 
 ### GET task $id list
-GET {{host}}/tasks/123
+GET {{host}}/tasks/13
 Accept: application/json
 
 ### POST Create new task
