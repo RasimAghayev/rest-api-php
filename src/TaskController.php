@@ -10,8 +10,7 @@ class TaskController
             }elseif ($method === "POST"){
                 echo "create";
             }else{
-                http_response_code(405);
-                header("Allow: GET,POST");
+                $this->respondMethodNotAllowed("GET,POST");
             }
         }else{
             switch ($method){
@@ -24,7 +23,16 @@ class TaskController
                 case "DELETE":
                     echo "delete $id";
                     break;
+                default:
+                    $this->respondMethodNotAllowed("GET,PATCH,DELETE");
             }
         }
+    }
+
+    private function respondMethodNotAllowed(string $allowed_methods):void
+    {
+        http_response_code(405);
+        header("Allow: $allowed_methods");
+
     }
 }

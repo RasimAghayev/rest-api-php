@@ -1,5 +1,5 @@
 ### GET request with a header
-DELETE {{host}}/tasks
+GET {{host}}/tasks
 Accept: application/json
 
 ### GET task $id list
