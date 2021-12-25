@@ -1,7 +1,7 @@
 /vendor/
 /http_request/http_phpstrom/http-client.private.env.json
 composer.lock
-
+.idea
 
 #public_html/storage
 #public_html/hot
