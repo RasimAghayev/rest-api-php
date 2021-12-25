@@ -1,20 +1,19 @@
 ### GET request with a header
-GET {{host}}/tasksxx
+GET {{host}}/tasks
 Accept: application/json
-#
-#### GET request with parameter
-#GET https://httpbin.org/get?show_env=1
-#Accept: application/json
-#
-#### GET request with environment variables
-#GET {{host}}/get?show_env={{show_env}}
-#Accept: application/json
-#
-#### GET request with disabled redirects
-# @no-redirect
-#GET http://httpbin.org/status/301
-#
-#### GET request with dynamic variables
-#GET http://httpbin.org/anything?id={{$uuid}}&ts={{$timestamp}}
-#
-####
+
+### GET task $id list
+GET {{host}}/tasks/123
+Accept: application/json
+
+### POST Create new task
+POST {{host}}/tasks
+Accept: application/json
+
+### PATCH Create new task
+PATCH {{host}}/tasks/123
+Accept: application/json
+
+### POST Create new task
+DELETE {{host}}/tasks/123
+Accept: application/json

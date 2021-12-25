@@ -1,0 +1,15 @@
+{
+    "name": "rasim/restapi-php.cmc",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rasim Aghayev",
+            "email": "rasimaqayev@gmail.com"
+        }
+    ],
+    "require": {}
+}
