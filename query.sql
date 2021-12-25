@@ -27,4 +27,13 @@ CREATE TABLE tasks(
 -----------------
 DESCRIBE tasks;
 
-SHOW INDEXES FROM tasks
+SHOW INDEXES FROM tasks;
+
+
+----------------------
+
+
+insert into tasks (name,priority,is_completed) values
+('Test edilesi case',1,true ),
+('Test edilesi case',2,false ),
+('Test edilesi case',NULL,false );
