@@ -1,16 +1,17 @@
 /vendor/
-node_modules/
-npm-debug.log
-yarn-error.log
 /http_request/http_phpstrom/http-client.private.env.json
+composer.lock
 
-# Laravel 5 & Lumen specific with changed public path
-public_html/storage
-public_html/hot
 
-storage/*.key
-.env
-Homestead.yaml
-Homestead.json
-/.vagrant
-.phpunit.result.cache
+#public_html/storage
+#public_html/hot
+#
+#storage/*.key
+#.env
+#Homestead.yaml
+#Homestead.json
+#/.vagrant
+#.phpunit.result.cache
+#node_modules/
+#npm-debug.log
+#yarn-error.log
