@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "945b397a-35de-4016-929d-eac475b6c3c2",
+		"name": "rest-api-php",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restapi-php.cmc/api/task/123",
+					"protocol": "https",
+					"host": [
+						"restapi-php",
+						"cmc"
+					],
+					"path": [
+						"api",
+						"task",
+						"123"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.environment.get(\"variable_key\");",
+					"pm.globals.get(\"variable_key\");"
+				]
+			}
+		}
+	]
+}

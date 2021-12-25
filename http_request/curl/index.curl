@@ -1,0 +1,3 @@
+ curl https://restapi-php.cmc/api/task/123
+ curl https://restapi-php.cmc/api/task/123 --request PATCH
+ curl https://restapi-php.cmc/api/task/123 -X DELETE
