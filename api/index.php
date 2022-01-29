@@ -2,6 +2,7 @@
 declare(strict_types=1);
 ini_set("display_errors","On");
 require_once dirname(__DIR__)."/vendor/autoload.php";
+set_exception_handler("ErrorHandler::handleError");
 set_exception_handler("ErrorHandler::handleException");
 $dotenv=\Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();

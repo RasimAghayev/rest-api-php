@@ -3,16 +3,22 @@ GET {{host}}/tasks
 Accept: application/json
 
 ### GET task $id list
-GET {{host}}/tasks/13
+GET {{host}}/tasks/1
 Accept: application/json
 
 ### POST Create new task
 POST {{host}}/tasks
 Accept: application/json
+#Content-Type: application/x-www-form-urlencoded
+Content-Type: application/json
+
+{"name":"Rasim","priority":1,"is_completed":false}
 
 ### PATCH Create new task
-PATCH {{host}}/tasks/123
+PATCH {{host}}/tasks/1
 Accept: application/json
+
+{"name":"Rasim","priority":1,"is_completed":false}
 
 ### POST Create new task
 DELETE {{host}}/tasks/123
