@@ -2,6 +2,12 @@
 
 class Database
 {
+    /**
+     * @param string $host
+     * @param string $name
+     * @param string $user
+     * @param string $password
+     */
     public function __construct(
         private string $host,
         private string $name,
@@ -11,6 +17,9 @@ class Database
     {
     }
 
+    /**
+     * @return PDO
+     */
     public function getConnection(): PDO
     {
         $dsn="mysql:host={$this->host};dbname={$this->name};charset=utf8";

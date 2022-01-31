@@ -11,7 +11,7 @@ $parts=explode("/",$path);
 $resource=$parts[2];
 $id=$parts[3] ?? null;
 if($resource !== "tasks"){
-    http_response_code(404);
+    http_response_code (404);
     exit;
 }
 

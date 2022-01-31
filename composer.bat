@@ -1,1 +1,1 @@
-E:\DevOps\OpenServer\modules\php\ComposerSetup\bin\composer.bat %~1
+E:\DevOps\OpenServer\userdata\composer\composer.bat %~1

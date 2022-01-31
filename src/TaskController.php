@@ -2,10 +2,20 @@
 
 class TaskController
 {
+    /**
+     * @param TaskGateway $gateway
+     */
     public function __construct(private TaskGateway $gateway)
     {
         
     }
+
+    /**
+     * Send request
+     * @param string $method
+     * @param string|null $id
+     * @return void
+     */
     public function processRequest(string $method, ?string $id) :void
     {
         if ($id===null){
@@ -53,29 +63,53 @@ class TaskController
         }
     }
 
+    /**
+     *
+     * @param array $errors
+     * @return void
+     */
     private function respondUnprocessableEntity(array $errors):void
     {
         http_response_code(422);
         echo json_encode(["errors"=>$errors]);
     }
+
+    /**
+     * @param string $allowed_methods
+     * @return void
+     */
     private function respondMethodNotAllowed(string $allowed_methods):void
     {
         http_response_code(405);
         header("Allow: $allowed_methods");
     }
 
+    /**
+     * @param string $id
+     * @return void
+     */
     private function respondNotFound(string $id):void
     {
         http_response_code(404);
         echo json_encode(["message"=>"Task with ID $id not found"]);
     }
 
+    /**
+     * @param string $id
+     * @return void
+     */
     private function respondCreated(string $id)
     {
         http_response_code(201);
         echo json_encode(["message"=>"Task create","id"=>$id]);
     }
 
+    /**
+     * Get Validation Error list
+     * @param array $data
+     * @param bool $is_new
+     * @return array
+     */
     private function getValidationErrors(array $data,bool $is_new=true): array
     {
         $errors=[];

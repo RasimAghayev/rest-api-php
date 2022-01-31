@@ -14,6 +14,11 @@ class ErrorHandler
     {
         throw new ErrorException($errstr,0,$errno,$errfile,$errline);
     }
+
+    /**
+     * @param Throwable $exception
+     * @return void
+     */
     public static function handleException(Throwable $exception):void
     {
         http_response_code(500);

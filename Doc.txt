@@ -1,0 +1,102 @@
+1. Introduction how to use the course and software installation\
+00:00:00 1. Introduction and welcome how to get the most out of the course
+00:01:23 2. Install a package with a web server, PHP, a database server and phpMyAdmin
+00:02:50 3. Install Composer manage third-party packages and autoload class files
+2. API basics what APIs are and how to use them\
+00:03:41 1. What is an API
+00:07:39 2. Make an API call access an API from PHP
+00:10:35 3. Decode API results reading JSON in PHP
+00:14:35 4. Use API data in a web application
+3. HTTP basics requests, responses and using cURL\
+00:18:47 1. Use cURL instead of file_get_contents to make an API request
+00:23:48 2. Response codes get the HTTP status code
+00:28:56 3. Request headers add meta data about the request
+00:32:45 4. Response headers read meta data about the response
+00:35:41 5. Get all individual response headers in an array
+00:39:36 6. Use an API that requires a specific request header
+00:43:00 7. Request method change the method to get a different result with the same URL
+00:46:44 8. Request body add a payload to send data along with the request
+4. REST and RESTful APIs using them from PHP\
+00:50:16 1. REST and RESTful APIs what are they
+00:53:57 2. Access a RESTful API in PHP with cURL
+00:57:49 3. Use the Guzzle HTTP client for object-oriented API code
+01:02:55 4. Use an SDK compare the Stripe API to its SDK
+5. Create a RESTful API build a framework for serving the API\
+01:08:36 1. Start writing the API enable URL rewriting
+01:12:06 2. The front controller get the resource, ID and the request method
+01:16:25 3. Use a client for API development cURL, Postman or HTTPie
+01:20:06 4. Set the HTTP status code best practices
+01:24:29 5. Add a controller class to decide the response
+01:29:12 6. Use Composer's autoloader to load classes automatically
+01:32:08 7. Make debugging easier add type declarations and enable strict type checking
+01:35:29 8. Always return JSON add a generic exception handler and JSON Content-Type header
+01:41:05 9. Send a 405 status code and Allow header for invalid request methods
+6. Create a RESTful API create a database and retrieve data from it\
+01:45:46 1. Create a new database and a database user to access it
+01:47:56 2. Create a table to store resource data
+01:49:30 3. Connect to the database from PHP add a Database class
+01:54:08 4. Move the database connection data to a separate .env file
+01:58:15 5. Create a table data gateway class for the resource table
+02:01:54 6. Show a list of all records
+02:05:12 7. Configure PDO to prevent numeric values from being converted to strings
+02:07:45 8. Convert database booleans to boolean literals in the JSON
+02:10:23 9. Show an individual record
+02:13:19 10. Respond with 404 if the resource with the specified ID is not found
+------------------------------------------------------------------------------------------------------------------------
+7. Create a RESTful API create, update and delete individual resources\
+02:17:17 1. Get the data from the request as JSON
+02:22:50 2. Insert a record into the database and respond with a 201 status code
+02:27:55 3. Add a generic error handler to output warnings as JSON
+02:30:48 4. Validate the data and respond with a 422 status code if invalid
+02:35:24 5. Conditionally validate the data when updating an existing record
+02:38:41 6. Get the data from the request for updating an existing record
+02:43:31 7. Update the record in the database and return a 200 status code
+02:49:11 8. Delete the record in the database and return a 200 status code
+8. API key authentication\
+02:51:35 1. Create a table to store user account data
+02:55:16 2. Add a register page to insert a new user record and generate a new API key
+03:01:27 3. Send the API key with the request query string or request header
+03:04:31 4. Check the API key is present in the request and return 400 if not
+03:06:15 5. Create a table data gateway class for the user table
+03:08:44 6. Authenticate the API key and return a 401 status code if invalid
+03:11:00 7. Refactor the front controller to a bootstrap file and Auth class
+03:15:45 8. Add a foreign key relationship to link task records to user records
+03:17:56 9. Retrieve the ID of the authenticated user when authenticating
+03:20:20 10. Restrict the tasks index endpoint to only show the authenticated user's tasks
+03:22:50 11. Restrict the rest of the task endpoints to the authenticated user's tasks
+03:27:21 12. Cache the database connection to avoid multiple connections in the same request
+9. An introduction to authentication using access tokens\
+03:29:24 1. An introduction to authentication using access tokens
+03:31:52 2. Create the login script and return 400 if the username and password are missing
+03:35:11 3. Select the user record based on the username in the request
+03:38:03 4. Check the username and password and return a 401 status code if invalid
+03:40:26 5. Generate an encoded access token containing the user details
+03:44:00 6. Pass the access token to the task API endpoints in the authorization header
+03:49:20 7. Validate the access token and decode its contents
+03:54:55 8. Get the authenticated user data from the access token
+10. Authentication using JSON Web Tokens (JWTs)\
+03:58:59 1. An introduction to JSON web tokens (JWTs)
+04:02:47 2. Create a class to encode a payload in a JWT
+04:08:03 3. Generate a JWT access token in the login endpoint containing JWT claims
+04:10:23 4. Add a method to decode the payload from the JWT
+04:15:57 5. Pass in the secret key used for hashing as a dependency
+04:17:48 6. Authenticate the task endpoints using the JWT
+04:21:29 7. Use a custom exception class to return 401 if the signature is invalid
+04:23:58 8. Don't store sensitive data in the JWT
+11. Expiring and refreshing access tokens\
+04:26:53 1. Why access tokens need to expire and how to refresh them in a user-friendly way
+04:30:05 2. Add an expiry claim to the access token payload when logging in
+04:32:19 3. Throw a custom exception to not accept the JWT if it has expired
+04:34:39 4. Issue a refresh token in addition to the access token when logging in
+04:36:45 5. Add a refresh endpoint and validate the refresh token in the request
+04:40:27 6. Validate the user in the refresh token using the database
+04:43:38 7. Issue a new access token and refresh token to the authenticated user
+04:46:03 8. Create a table to store a refresh token whitelist
+04:48:22 9. Store the refresh token in the whitelist when issued in the login endpoint
+04:52:10 10. Replace the refresh token in the whitelist when issued in the refresh endpoint
+04:55:00 11. Validate the refresh token is on the whitelist and return a 400 response if not
+04:58:16 12. Add a logout endpoint to remove the an active refresh token from the whitelist
+05:02:35 13. Add a script to clear out expired refresh tokens from the whitelist
+05:06:28 14. See how a single-page application interacts with the API using access tokens
+12. Conclusion\
+05:10:02 - 1. Conclusion & where to go from here

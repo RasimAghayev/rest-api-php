@@ -2,13 +2,23 @@
 
 class TaskGateway
 {
+    /**
+     * @var PDO
+     */
     private PDO $conn;
 
+    /**
+     * @param Database $database
+     */
     public function __construct(Database $database)
     {
         $this->conn=$database->getConnection();
     }
 
+    /**
+     * Get Tasks list
+     * @return array
+     */
     public function getAll(): array
     {
         $sql="SELECT * FROM `tasks` order by 'name'";
@@ -21,6 +31,11 @@ class TaskGateway
         return $data;
     }
 
+    /**
+     * Get Task ID
+     * @param string $id
+     * @return array|false
+     */
     public function get(string $id): array | false
     {
         $sql="SELECT * FROM `tasks` where id=:id";
@@ -34,6 +49,11 @@ class TaskGateway
         return $data;
     }
 
+    /**
+     * Create Task ID
+     * @param array $data
+     * @return string
+     */
     public function create(array $data) : string
     {
         $sql="INSERT INTO tasks (name , priority , is_completed ) VALUES ( :name , :priority , :is_completed)";
@@ -49,6 +69,12 @@ class TaskGateway
         return $this->conn->lastInsertId();
     }
 
+    /**
+     * Update Task ID
+     * @param string $id
+     * @param array $data
+     * @return int
+     */
     public function update(string $id, array $data): int
     {
         $fields=[];
@@ -89,6 +115,11 @@ class TaskGateway
         }
     }
 
+    /**
+     * Delete Task ID
+     * @param string $id
+     * @return int
+     */
     public function delete(string $id):int
     {
         $sql="DELETE FROM tasks WHERE id=:id";
