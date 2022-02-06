@@ -39,13 +39,17 @@ insert into tasks (name,priority,is_completed) values
 ('Test edilesi case',NULL,false );
 
 ----------------------
-CREATE TABLE users(
-                      id INT NOT  NULL AUTO_INCREMENT,
-                      name VARCHAR (128) NOT NULL,
-                      username VARCHAR (128) NOT NULL,
-                      password_hash VARCHAR (255) NOT NULL,
-                      api_key VARCHAR (128) NOT NULL,
-                      PRIMARY KEY (id),
-                      UNIQUE (username),
-                      UNIQUE (api_key)
-);
+CREATE TABLE `users` (
+                         `id` INT(11) NOT NULL AUTO_INCREMENT,
+                         `name` VARCHAR(128) NOT NULL COLLATE 'utf8_bin',
+                         `username` VARCHAR(128) NOT NULL COLLATE 'utf8_bin',
+                         `password_hash` VARCHAR(255) NOT NULL COLLATE 'utf8_bin',
+                         `api_key` VARCHAR(32) NOT NULL COLLATE 'utf8_bin',
+                         PRIMARY KEY (`id`) USING BTREE,
+                         UNIQUE INDEX `username` (`username`) USING BTREE,
+                         UNIQUE INDEX `api_key` (`api_key`) USING BTREE
+)
+    COLLATE='utf8_bin'
+ENGINE=InnoDB
+;
+

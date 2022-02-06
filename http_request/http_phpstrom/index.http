@@ -14,12 +14,12 @@ Content-Type: application/json
 
 {"name":"Rasim","priority":1,"is_completed":false}
 
-### PATCH Create new task
+### PATCH Update Task ID
 PATCH {{host}}/tasks/1
 Accept: application/json
 
 {"name":"Rasim","priority":1,"is_completed":false}
 
-### POST Create new task
+### DELETE Delete Task ID
 DELETE {{host}}/tasks/123
 Accept: application/json

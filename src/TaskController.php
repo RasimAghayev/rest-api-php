@@ -5,10 +5,7 @@ class TaskController
     /**
      * @param TaskGateway $gateway
      */
-    public function __construct(private TaskGateway $gateway)
-    {
-        
-    }
+    public function __construct(private TaskGateway $gateway){}
 
     /**
      * Send request
@@ -106,6 +103,7 @@ class TaskController
 
     /**
      * Get Validation Error list
+     * New record check $is_new=true
      * @param array $data
      * @param bool $is_new
      * @return array
@@ -114,7 +112,7 @@ class TaskController
     {
         $errors=[];
         if ($is_new && empty($data["name"])){
-            $errors[]=" name is required";
+            $errors[]="name is required";
         }
         if (!empty($data["priority"])){
             if (filter_var($data["priority"],FILTER_VALIDATE_INT)===false){
