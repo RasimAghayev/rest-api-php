@@ -15,6 +15,11 @@ class UserGateway
         $this->conn=$database->getConnection();
     }
 
+    /**
+     * HTTP_X_API_KEY request Check
+     * @param string $key
+     * @return array|false
+     */
     public function getByAPIKey(string $key):array|false
     {
         $sql="SELECT *

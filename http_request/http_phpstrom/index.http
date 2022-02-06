@@ -1,3 +1,9 @@
+### GET request with a header API_KEY
+GET {{host}}/tasks
+Accept: application/json
+X-API-Key:85e71d6e3038f170e13cbf2ba21c0fc2
+
+
 ### GET request with a header
 GET {{host}}/tasks
 Accept: application/json
@@ -23,3 +29,4 @@ Accept: application/json
 ### DELETE Delete Task ID
 DELETE {{host}}/tasks/123
 Accept: application/json
+
