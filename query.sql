@@ -64,4 +64,4 @@ ALTER TABLE `tasks`
     ADD INDEX `user_id` (`user_id`);
 
 UPDATE rest_api_php.tasks SET user_id=1;
-ALTER TABLE tasks ADD FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE ;
+ALTER TABLE rest_api_php.tasks ADD FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE ;
