@@ -28,4 +28,10 @@ if ($user===false || !password_verify($data['password'],$user['password_hash']))
     echo json_encode(["message"=>"Invalid authentication"]);
     exit();
 }
-echo json_encode('Successful authentication');
+
+$codec=new JWTCodec($_ENV["SECRET_KEY"]);
+
+require_once __DIR__."/tokens.php";
+
+$refresh_token_gateway=new RefreshTokenGateway($database,$_ENV["SECRET_KEY"]);
+$refresh_token_gateway->create($refresh_token,$refresh_token_ecpiry);

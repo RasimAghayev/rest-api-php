@@ -65,3 +65,12 @@ ALTER TABLE `tasks`
 
 UPDATE rest_api_php.tasks SET user_id=1;
 ALTER TABLE rest_api_php.tasks ADD FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE ;
+
+
+-- --------------------------------
+CREATE TABLE refresh_token(
+    token_hash varchar(64) NOT NULL ,
+    expires_at INT UNSIGNED NOT NULL,
+    PRIMARY KEY (token_hash),
+    INDEX (expires_at)
+);
