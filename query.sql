@@ -74,3 +74,35 @@ CREATE TABLE refresh_token(
     PRIMARY KEY (token_hash),
     INDEX (expires_at)
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------POSTGRSQL
+
+
+
+CREATE TABLE "tasks" (
+                         "id" BIGSERIAL NOT NULL,
+                         "name" VARCHAR(255) NOT NULL,
+                         "priority" INTEGER NULL,
+                         "is_completed" BOOLEAN NOT NULL,
+                         "user_id" INTEGER NOT NULL,
+                         PRIMARY KEY ("id")
+)
+;
+CREATE INDEX "name" ON "tasks" USING HASH ("name");
+
+
