@@ -34,7 +34,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6MTY0NTEwNDc2MH0.g1bBYUkWGCJ6ZLore5kFR2CZogEULl5pG4canpqC5YU",
+								"value": "Bearer -----",
 								"type": "text"
 							}
 						],
@@ -205,7 +205,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6MTY0NTA1NjI1MH0.-RNv3FC40alMose7CMkdf3Rnk4eXZFJvCrTst24uB28\"\r\n}",
+					"raw": "{\r\n    \"token\":\"----------\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
