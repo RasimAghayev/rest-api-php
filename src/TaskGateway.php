@@ -95,6 +95,7 @@ class TaskGateway
      * @param array $data
      * @return string
      */
+    /**
     public function create(array $data) : string
     {
         $sql="INSERT INTO tasks (name , priority , is_completed ) VALUES ( :name , :priority , :is_completed)";
@@ -109,7 +110,7 @@ class TaskGateway
         $stmt->execute();
         return $this->conn->lastInsertId();
     }
-
+*/
     /**
      * Create Task ID for User
      * @param array $data
@@ -137,6 +138,7 @@ class TaskGateway
      * @param array $data
      * @return int
      */
+    /**
     public function update(string $id, array $data): int
     {
         $fields=[];
@@ -176,6 +178,7 @@ class TaskGateway
             return $stmt->rowCount();
         }
     }
+    */
 
     /**
      * Update Task ID for user
@@ -230,6 +233,7 @@ class TaskGateway
      * @param string $id
      * @return int
      */
+    /**
     public function delete(string $id):int
     {
         $sql="DELETE FROM tasks WHERE id=:id";
@@ -238,7 +242,7 @@ class TaskGateway
         $stmt->execute();
         return  $stmt->rowCount();
     }
-
+*/
     /**
      * Delete Task ID for user
      * @param string $id

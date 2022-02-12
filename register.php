@@ -7,24 +7,11 @@ if ($_SERVER["REQUEST_METHOD"]==="POST"){
                            $_ENV["DB_NAME"],
                            $_ENV["DB_USER"],
                            $_ENV["DB_PASS"]);
-    $conn=$database->getConnection();
-    $sql_checkuser="SELECT username FROM users WHERE username=:username";
-    $stmt_checkuser=$conn->prepare($sql_checkuser);
-    $stmt_checkuser->bindValue(":username",$_POST["username"],PDO::PARAM_STR);
-    $stmt_checkuser->execute();
-    $data=$stmt_checkuser->fetch(PDO::FETCH_ASSOC);
-    (!empty($data))?die("User already yes ".$_POST["username"]):'';
-
-    $sql="INSERT INTO users (name,username,password_hash,api_key)
-          VALUES (:name,:username,:password_hash,:api_key)";
-    $stmt=$conn->prepare($sql);
-    $password_hash=password_hash($_POST["password"],PASSWORD_DEFAULT);
-    $api_key=bin2hex(random_bytes(16));
-    $stmt->bindValue(":name",$_POST["name"],PDO::PARAM_STR);
-    $stmt->bindValue(":username",$_POST["username"],PDO::PARAM_STR);
-    $stmt->bindValue(":password_hash",$password_hash,PDO::PARAM_STR);
-    $stmt->bindValue(":api_key",$api_key,PDO::PARAM_STR);
-    $stmt->execute();
+    $user_gatwey=new UserGateway($database);
+    $username=$user_gatwey->getByUsername($_POST["username"]);
+//    var_dump($user_gatwey);die();
+    (empty($username))?:die("User already yes ".$_POST["username"]) ;
+    $api_key=$user_gatwey->createUsername($_POST["name"],$_POST["username"],$_POST["password"]);
     echo "Thank you for registering. Your API key is ".$api_key;
     exit();
 }
