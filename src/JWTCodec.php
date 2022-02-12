@@ -2,10 +2,16 @@
 
 class JWTCodec
 {
-    public function __construct(private string $key)
-    {
-        
-    }
+    /**
+     * @param string $key
+     */
+    public function __construct(private string $key){}
+
+    /**
+     * JWT $payload Encode
+     * @param array $payload
+     * @return string
+     */
     public function encode(array $payload):string
     {
         $header=json_encode([
@@ -29,6 +35,13 @@ class JWTCodec
         return $header.".".$payload.".".$signature;
     }
 
+    /***
+     * JWT $token Decode
+     * @param string $token
+     * @return array
+     * @throws InvalidSignatureException
+     * @throws TokenExpiredException
+     */
     public function decode(string $token): array
     {
         if(preg_match("/^(?<header>.+)\.(?<payload>.+)\.(?<signature>.+)$/",
@@ -55,6 +68,11 @@ class JWTCodec
 
     }
 
+    /**
+     * Base64 URL Encoder
+     * @param string $text
+     * @return string
+     */
     private function base64urlEncode(string $text) : string
     {
         return str_replace(
@@ -64,6 +82,11 @@ class JWTCodec
         );
     }
 
+    /**
+     * Base64 URL Decode
+     * @param string $text
+     * @return string
+     */
     private function base64urlDecoder(string $text) : string
     {
         return base64_decode(str_replace(

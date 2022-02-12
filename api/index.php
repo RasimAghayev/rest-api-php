@@ -1,7 +1,14 @@
 <?php
+/**
+ * Declaring strict typing will ensure that any function calls made in that file strictly adhere to the types specified.
+ */
 declare(strict_types=1);
 ini_set("display_errors","On");
 require_once __DIR__."/bootstrap.php";
+
+/**
+ * URL parse
+ */
 $path=parse_url($_SERVER["REQUEST_URI"],PHP_URL_PATH);
 $parts=explode("/",$path);
 $resource=$parts[2];
@@ -11,6 +18,9 @@ if($resource !== "tasks"){
     exit;
 }
 
+/**
+ * Connect database
+ */
 $database=new Database($_ENV['DB_HOST'],$_ENV["DB_NAME"],$_ENV["DB_USER"],$_ENV["DB_PASS"]);
 $user_gatwey=new UserGateway($database);
 

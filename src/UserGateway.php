@@ -32,6 +32,10 @@ class UserGateway
 
     }
 
+    /**
+     * @param string $username
+     * @return array|false
+     */
     public function getByUsername(string $username): array | false
     {
         $sql="SELECT * FROM users where username=:username";
@@ -41,6 +45,10 @@ class UserGateway
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * @param int $id
+     * @return array|false
+     */
     public function getByID(int $id): array | false
     {
         $sql="SELECT * FROM users WHERE id=:id";
@@ -49,5 +57,6 @@ class UserGateway
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
 
 }

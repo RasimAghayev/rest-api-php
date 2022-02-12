@@ -1,6 +1,3 @@
 <?php
 
-class TokenExpiredException extends Exception
-{
-
-}
+class TokenExpiredException extends Exception{}

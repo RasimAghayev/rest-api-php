@@ -1,6 +1,3 @@
 <?php
 
-class InvalidSignatureException extends Exception
-{
-
-}
+class InvalidSignatureException extends Exception{}

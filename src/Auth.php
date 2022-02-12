@@ -8,7 +8,9 @@ class Auth
     private int $user_id;
 
     /**
+     * Set UserGateway & JWTCodec
      * @param UserGateway $userGateway
+     * @param JWTCodec $codec
      */
     public function __construct(private UserGateway $userGateway,
                                 private JWTCodec $codec){}
@@ -44,6 +46,10 @@ class Auth
         return $this->user_id;
     }
 
+    /**
+     * Check access token true or false
+     * @return bool
+     */
     public function authenticateAccessToken(): bool
     {
         if(!preg_match("/^Bearer\s+(.*)$/",$_SERVER["HTTP_AUTHORIZATION"],$matches))

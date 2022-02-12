@@ -2,15 +2,32 @@
 
 class RefreshTokenGateway
 {
+    /**
+     * @var PDO
+     */
     private PDO $conn;
+    /**
+     * @var string
+     */
     private string $key;
 
+    /**
+     * Connect DataBase
+     * @param Database $database
+     * @param string $key
+     */
     public function __construct(Database $database,string $key)
     {
         $this->conn=$database->getConnection();
         $this->key=$key;
     }
 
+    /**
+     * Create Token
+     * @param string $token
+     * @param int $expiry
+     * @return bool
+     */
     public function create(string $token,int $expiry)
     {
         $hash=hash_hmac("sha256",$token,$this->key);
@@ -23,6 +40,11 @@ class RefreshTokenGateway
         return $stmt->execute();
     }
 
+    /**
+     * Delete Token
+     * @param string $token
+     * @return int
+     */
     public function delete(string $token):int
     {
         $hash=hash_hmac("sha256",$token,$this->key);
@@ -34,6 +56,11 @@ class RefreshTokenGateway
         return $stmt->rowCount();
     }
 
+    /**
+     * Get Token
+     * @param string $token
+     * @return array|false
+     */
     public function getByToken(string $token) : array | false
     {
         $hash=hash_hmac("sha256",$token,$this->key);
@@ -45,6 +72,10 @@ class RefreshTokenGateway
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Delete all Expired Token
+     * @return int
+     */
     public function deleteExpired(): int
     {
         $sql="DELETE FROM refresh_token WHERE expires_at<UNIX_TIMESTAMP()";

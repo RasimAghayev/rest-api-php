@@ -42,19 +42,28 @@ if ($_SERVER["REQUEST_METHOD"]==="POST"){
     <main class="container">
         <h1>Register</h1>
         <form action="" method="post">
-            <label for="name">
-                Name
-                <input type="text" name="name" id="name">
-            </label>
-            <label for="username">
-                Username
-                <input type="text" name="username" id="username">
-            </label>
-            <label for="password">
-                Password
-                <input type="text" name="password" id="password">
-            </label>
-            <button>Register</button>
+            <!-- Grid -->
+            <div class="grid">
+                <!-- Markup example 1: input is inside label -->
+                <label for="name">
+                    Full name
+                    <input type="text" id="name" name="name" placeholder="First name" required>
+                </label>
+
+                <label for="name">
+                    User name
+                    <input type="text" id="username" name="username" placeholder="User name" required>
+                </label>
+
+            </div>
+
+            <!-- Markup example 2: input is after label -->
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+
+            <!-- Button -->
+            <button type="submit">Register</button>
+
         </form>
     </main>
 </body>

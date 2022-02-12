@@ -11,7 +11,7 @@ class TaskController
     ){}
 
     /**
-     * Send request
+     * Send request Task
      * @param string $method
      * @param string|null $id
      * @return void
