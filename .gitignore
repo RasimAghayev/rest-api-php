@@ -1,6 +1,6 @@
 /vendor/
 /http_request/http_phpstrom/http-client.private.env.json
-composer.lock
+#composer.lock
 .idea
 .env
 Doc.txt
