@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "2dfdac61-21cc-4091-9126-b99cc4e24e60",
+		"name": "rest-api-php",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "tasks",
+			"item": [
+				{
+					"name": "GetAllTasks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "85e71d6e3038f170e13cbf2ba21c0fc2",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6MTY0NTEwNDc2MH0.g1bBYUkWGCJ6ZLore5kFR2CZogEULl5pG4canpqC5YU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{hostrestapi}}/tasks",
+							"host": [
+								"{{hostrestapi}}"
+							],
+							"path": [
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTaskByID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "85e71d6e3038f170e13cbf2ba21c0fc2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{hostrestapi}}/tasks/6",
+							"host": [
+								"{{hostrestapi}}"
+							],
+							"path": [
+								"tasks",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateTask",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "85e71d6e3038f170e13cbf2ba21c0fc2",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Rasim\",\r\n    \"priority\": 1,\r\n    \"is_completed\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostrestapi}}/tasks",
+							"host": [
+								"{{hostrestapi}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "85e71d6e3038f170e13cbf2ba21c0fc2",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Rasim\",\r\n    \"priority\": 1,\r\n    \"is_completed\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostrestapi}}/tasks/6",
+							"host": [
+								"{{hostrestapi}}"
+							],
+							"path": [
+								"tasks",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "85e71d6e3038f170e13cbf2ba21c0fc2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{hostrestapi}}/tasks/12",
+							"host": [
+								"{{hostrestapi}}"
+							],
+							"path": [
+								"tasks",
+								"12"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"rasimaqayev\",\r\n    \"password\":\"zBACs3Nbs5b\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hostrestapi}}/login.php",
+					"host": [
+						"{{hostrestapi}}"
+					],
+					"path": [
+						"login.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refresh",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6MTY0NTA1NjI1MH0.-RNv3FC40alMose7CMkdf3Rnk4eXZFJvCrTst24uB28\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hostrestapi}}/logout.php",
+					"host": [
+						"{{hostrestapi}}"
+					],
+					"path": [
+						"logout.php"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "hostrestapi",
+			"value": "https://restapi-php.cmc/api",
+			"type": "string"
+		}
+	]
+}
