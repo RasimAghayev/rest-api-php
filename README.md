@@ -1,5 +1,7 @@
 # RESTful API with PHP
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/RasimAghayev/rest-api-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/RasimAghayev/rest-api-php/?branch=master)
+
 ## Structure Design Patterns PHP
 
 [Structural => Dependency Injection](https://designpatternsphp.readthedocs.io/en/latest/Structural/DependencyInjection/README.html)
