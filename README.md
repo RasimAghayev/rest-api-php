@@ -1,4 +1,6 @@
 # RESTful API with PHP
+![Views](https://hits.sh/github.com/RasimAghayev/rest-api-php.svg?label=views&color=0e75b6)
+
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/RasimAghayev/rest-api-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/RasimAghayev/rest-api-php/?branch=master)
 
